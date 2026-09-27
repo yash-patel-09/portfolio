@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yash - Portfolio</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #000000;
+            --card-bg: #09090b;
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --border-color: #27272a;
+            --badge-bg: #18181b;
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: var(--font-main);
+            line-height: 1.5;
+            padding-bottom: 120px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 60px 24px;
+        }
+
+        /* Hero Header */
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        .hero-text h1 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 12px;
+        }
+
+        .hero-text h1 .wave {
+            display: inline-block;
+            animation: wave-animation 2.5s infinite;
+            transform-origin: 70% 70%;
+        }
+
+        @keyframes wave-animation {
+            0% { transform: rotate( 0.0deg) }
+            10% { transform: rotate(14.0deg) }
+            20% { transform: rotate(-8.0deg) }
+            30% { transform: rotate(14.0deg) }
+            40% { transform: rotate(-4.0deg) }
+            50% { transform: rotate(10.0deg) }
+            60% { transform: rotate( 0.0deg) }
+           100% { transform: rotate( 0.0deg) }
+        }
+
+        .hero-text p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            font-weight: 400;
+            max-width: 500px;
+            line-height: 1.5;
+        }
+
+        .hero-avatar img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Section Commons */
+        section {
+            margin-bottom: 48px;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+
+        .about-text {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Experience & Education List */
+        .item-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .item-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .item-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .item-logo {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: contain;
+            background-color: #ffffff;
+            padding: 2px;
+            flex-shrink: 0;
+            border: 1px solid var(--border-color);
+        }
+
+        .item-details h3 {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .item-details p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .item-date {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+
+        .item-desc {
+            margin-top: 8px;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            line-height: 1.5;
+            grid-column: 1 / -1;
+            padding-left: 60px;
+        }
+
+        /* Skills Pills */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-pill {
+            background-color: var(--badge-bg);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.825rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .skill-pill:hover {
+            border-color: #a1a1aa;
+            transform: translateY(-1px);
+        }
+
+        /* Projects Section */
+        .projects-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background-color: var(--badge-bg);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .projects-header h2 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 8px;
+        }
+
+        .projects-header p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .project-card:hover {
+            border-color: #52525b;
+            transform: translateY(-2px);
+        }
+
+        .project-video {
+            position: relative;
+            width: 100%;
+            background-color: #000;
+            border-bottom: 1px solid var(--border-color);
+            cursor: pointer;
+        }
+
+        .project-video video {
+            width: 100%;
+            display: block;
+            max-height: 360px;
+            object-fit: cover;
+        }
+
+        /* Play Overlay Button for Autoplay Fallback */
+        .play-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 2;
+        }
+
+        .play-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .play-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.9);
+            color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            padding-left: 4px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            transition: transform 0.2s ease;
+        }
+
+        .play-overlay:hover .play-btn {
+            transform: scale(1.1);
+        }
+
+        .project-content {
+            padding: 20px;
+        }
+
+        .project-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .project-desc {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .project-tag {
+            background-color: var(--badge-bg);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* Floating Nav Bar */
+        .floating-nav {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(24, 24, 27, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            padding: 10px 20px;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+            z-index: 100;
+        }
+
+        .nav-item {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: color 0.2s ease, transform 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-item:hover {
+            color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .hero {
+                flex-direction: column-reverse;
+                align-items: flex-start;
+            }
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+            .item-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            .item-date {
+                align-self: flex-start;
+            }
+            .item-desc {
+                padding-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="hero-text">
+                <h1>Hi, I'm Yash <span class="wave">👋</span></h1>
+                <p>Full-stack engineer driving innovation and scalable solutions for impactful user experiences.</p>
+            </div>
+            <div class="hero-avatar">
+                <img src="self.jpg" alt="Yash">
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2 class="section-title">About</h2>
+            <p class="about-text">
+                I am a recent BCA graduate with a strong foundation in software development and web technologies. I am a quick learner, problem solver, and motivated IT professional looking for an entry-level opportunity to apply my skills, contribute to real-world projects, and grow within a professional environment.
+            </p>
+        </section>
+
+        <!-- Work Experience Section -->
+        <section id="work">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="item-list">
+                <div style="display: flex; flex-direction: column;">
+                    <div class="item-card">
+                        <div class="item-left">
+                            <img src="TOS.jpg" alt="Triple One Studio" class="item-logo">
+                            <div class="item-details">
+                                <h3>Triple One Studio</h3>
+                                <p>Web Developer</p>
+                            </div>
+                        </div>
+                        <div class="item-date">Dec 2025 – Mar 2026</div>
+                    </div>
+                    <p class="item-desc">Developed an Online Test Management System with role-based access for students and teachers, subject-wise exam and question management, timed auto-submission, and automated evaluation with subject-wise results.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <h2 class="section-title">Education</h2>
+            <div class="item-list">
+                <div class="item-card">
+                    <div class="item-left">
+                        <img src="mca.jpg" alt="Swaminarayan University" class="item-logo">
+                        <div class="item-details">
+                            <h3>Swaminarayan University - Kalol</h3>
+                            <p>Master of Computer Application (MCA)</p>
+                        </div>
+                    </div>
+                    <div class="item-date">2026 – Present</div>
+                </div>
+
+                <div class="item-card">
+                    <div class="item-left">
+                        <img src="mkbu.png" alt="MKBU" class="item-logo">
+                        <div class="item-details">
+                            <h3>Maharaja Krishnakumarsinhji Bhavnagar University</h3>
+                            <p>Bachelor of Computer Application (BCA)</p>
+                        </div>
+                    </div>
+                    <div class="item-date">2023 – 2026</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <span class="skill-pill">HTML5</span>
+                <span class="skill-pill">CSS3</span>
+                <span class="skill-pill">JavaScript</span>
+                <span class="skill-pill">PHP</span>
+                <span class="skill-pill">MySQL</span>
+                <span class="skill-pill">Web Development</span>
+                <span class="skill-pill">Database Management</span>
+                <span class="skill-pill">Problem Solving</span>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <div class="projects-header">
+                <span class="section-badge">My Projects</span>
+                <h2>Check out my latest work</h2>
+                <p>I've worked on a variety of projects, from simple websites to complex web applications. Here is my favorite.</p>
+            </div>
+
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-video" id="videoContainer">
+                        <video id="demoVideo" muted loop playsinline controls preload="auto">
+                            <source src="project_demo.mp4" type="video/mp4">
+                            Your browser does not support video playback.
+                        </video>
+                        <div class="play-overlay" id="playOverlay">
+                            <div class="play-btn"><i class="fas fa-play"></i></div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Online Examination System</h3>
+                        <p class="project-desc">
+                            Developed an Online Test Management System with role-based access for students and teachers, subject-wise exam and question management, timed auto-submission, and automated evaluation with subject-wise results.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML</span>
+                            <span class="project-tag">CSS</span>
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">PHP</span>
+                            <span class="project-tag">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Floating Navbar -->
+    <div class="floating-nav">
+        <a href="#about" class="nav-item" title="About"><i class="fas fa-user"></i></a>
+        <a href="#work" class="nav-item" title="Work"><i class="fas fa-briefcase"></i></a>
+        <a href="#projects" class="nav-item" title="Projects"><i class="fas fa-code"></i></a>
+        <a href="mailto:yashmangukiya8811@gmail.com" class="nav-item" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="tel:+919328212690" class="nav-item" title="Call"><i class="fas fa-phone"></i></a>
+        <a href="https://www.linkedin.com/in/yash-mangukiya-75bb59286" target="_blank" rel="noopener noreferrer" class="nav-item" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+
+    <!-- Robust Video Player Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const video = document.getElementById('demoVideo');
+            const overlay = document.getElementById('playOverlay');
+            if (!video) return;
+
+            video.muted = true; // Ensure video is muted for autoplay
+
+            function attemptPlay() {
+                const playPromise = video.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        overlay.classList.remove('active');
+                    }).catch(() => {
+                        // Show play button if browser blocks autoplay
+                        overlay.classList.add('active');
+                    });
+                }
+            }
+
+            // Play via overlay click
+            overlay.addEventListener('click', () => {
+                video.play();
+                overlay.classList.remove('active');
+            });
+
+            // Intersection Observer to auto-play when visible
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        attemptPlay();
+                    } else {
+                        video.pause();
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            observer.observe(video);
+        });
+    </script>
+</body>
+</html>
